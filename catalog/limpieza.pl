@@ -2,10 +2,10 @@
 
 $exclusive_lock = 2;
 $unlock_lock = 8;
-$listado ="/httpd/htdocs/listado";
+$listado ="/var/lib/httpd/cgi-bin/temporal";
 
-print `cp /httpd/htdocs/libro.txt /httpd/htdocs/libro.bak`;
-$listado_de_libros = "/httpd/htdocs/libro.txt";
+print `cp /var/lib/httpd/cgi-bin/libro.txt /var/lib/httpd/cgi-bin/libro.bak`;
+$listado_de_libros = "/var/lib/httpd/cgi-bin/libro.txt";
 
 # En primer lugar, realiza una sustitucion y limpieza de todos los
 # caracteres raros (acentos, etc), y los reemplaza por su equivalente en
@@ -24,6 +24,8 @@ $_ =~ s/(\¡)/i/g;
 $_ =~ s/(\¢)/o/g;
 $_ =~ s/(\£)/u/g;
 $_ =~ s/(\¤)/n/g;
+$_ =~ s/(\§)/ro./g; #subindice de nro. (numero)
+$_ =~ s/(\š)/u/g; #u con dieresis
 $_ =~ s/(\)//g;
 
 print LISTADO $_ if /\w/;
@@ -44,8 +46,8 @@ print LISTADO $_ if /\w/;
 $flag=0;
 $mona="Listado de Libros";
 
-$listado = "/httpd/htdocs/libro.txt";
-$listado_de_libros = "/httpd/htdocs/listado";
+$listado = "/var/lib/httpd/cgi-bin/libro.txt";
+$listado_de_libros = "/var/lib/httpd/cgi-bin/temporal";
 
 open (LIBROS, "<" . $listado_de_libros); 
 open (LISTADO, ">" . $listado); 
@@ -56,7 +58,7 @@ if ((/^\s+/)&&(!/reg/)) {
 
 $aux1 = $mona;
 ($aux2) = ($_ =~ /\s*(.*)/);
-$mona = join '    ',$aux1,$aux2;
+$mona = $aux1." ".$aux2;
 $flag = 0;
 } else {
 
@@ -73,6 +75,6 @@ $flag=1;
 	close (LISTADO);
 	close (LIBROS);
 
-print `rm /httpd/htdocs/listado`;
+print `rm /var/lib/httpd/cgi-bin/temporal`;
 
 exit(0);
