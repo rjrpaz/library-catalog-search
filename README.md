@@ -16,7 +16,7 @@ Includes a sample database from ISIS. It also includes a script (*limpieza.pl*) 
 
 ### cgi
 
-Includes the search script (*autor.pl*). Return the result in html format.
+Includes the search scripts (*autor.pl*, *search.pl*). Return the result in html format.
 
 ### html
 
