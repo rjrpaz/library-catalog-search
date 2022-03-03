@@ -1,0 +1,240 @@
+<html>
+
+<head>
+<title>Manual de Consulta Isis</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+
+
+<meta name="Microsoft Theme" content="none"><meta name="Microsoft Border" content="tl, default"></head>
+
+<body><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td><font face="arial, helvetica" mstheme>
+
+<p align="center"><font size="6"><strong>Manual Consulta de  Isis</strong></font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+</font mstheme></td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top" width="1%"><font face="arial, helvetica" mstheme>
+
+<p>&nbsp;</p>
+</font mstheme></td><td valign="top" width="24"></td><!--msnavigation--><td valign="top">
+
+<p>&nbsp;</p>
+
+<p ALIGN="JUSTIFY">Este no pretende ser un manual completo del paquete Mini- MicroIsis,
+sólo se propone explicar la sintaxis utilizada por el lenguaje de búsqueda de Mini Micro
+Isis. </p>
+
+<p ALIGN="JUSTIFY">Las referencias que aparecen dentro del texto de este manual, se
+remiten al manual del paquete <b>Mini-Micro CDS/ISIS</b> de marzo de 1.989 para las
+versiones 2.3 y 2.32 </p>
+
+<p ALIGN="center"><strong>Consultando la base de datos</strong></p>
+
+<p ALIGN="JUSTIFY">&nbsp;Para consultar la base de datos se pueden utilizar los siguientes
+operadores lógicos:</p>
+
+<p ALIGN="center">&nbsp;<b>+</b> significa <b>O</b>.</p>
+<b>
+
+<p ALIGN="CENTER">*</b> significa <b>Y</b>.</p>
+
+<p ALIGN="CENTER">&nbsp;<b>^</b> significa <b>NO</b>.</p>
+
+<p ALIGN="left"><strong>Nota especial</strong>: Nuestro sistema de búsqueda ha
+incorporado los términos <strong>y</strong>, <strong>o</strong> y <strong>sin</strong>
+para ser utilizados en lugar de *, + y <b>^ </b>respectivamente, pero <strong>AMBOS SON
+VALIDOS</strong>.</p>
+
+<p ALIGN="JUSTIFY">Por lo tanto, si se presiona en un término el signo <b>+</b> (p.e.
+Agua), y posteriormente en otro término otro signo <b>+</b> (p.e. Obras Públicas), se
+creará una cadena de los dos términos :</p>
+
+<p ALIGN="CENTER">Agua <b>+</b> Obras Públicas</p>
+
+<p ALIGN="JUSTIFY">&nbsp;equivalente a decir</p>
+
+<p ALIGN="center">&nbsp;Agua <b>u</b> Obras Públicas</p>
+
+<p ALIGN="JUSTIFY">&nbsp;el sistema recuperará todos los registros que posean cualquiera
+de los dos términos.</p>
+
+<p ALIGN="JUSTIFY">&nbsp;Si se crea la cadena con signos <b>*</b> :</p>
+
+<p ALIGN="center">&nbsp;Agua <b>* </b>Obras Públicas</p>
+
+<p ALIGN="JUSTIFY">&nbsp;equivalente a </p>
+
+<p ALIGN="center">&nbsp;Agua <b>y</b> Obras Públicas</p>
+
+<p ALIGN="JUSTIFY">el sistema recuperará todos registros que contengan el término Agua y
+el término Obras Públicas.</p>
+
+<p ALIGN="JUSTIFY">Si se crea una cadena con el signo <b>^</b>:</p>
+
+<p ALIGN="CENTER">Agua <b>^</b> Obras Públicas</p>
+
+<p ALIGN="JUSTIFY">&nbsp;equivalente a decir</p>
+
+<p ALIGN="center">&nbsp;Agua <b>sin</b> Obras Públicas</p>
+
+<p ALIGN="JUSTIFY">el sistema recuperará todos los registros que tengan el término Agua
+pero que no tengan el término Obras Públicas.</p>
+
+<p ALIGN="JUSTIFY">Es posible generar una cadena Combinando los conectores lógicos +, * y
+^.</p>
+
+<p ALIGN="center"><strong>Casos Especiales</strong></p>
+
+<p ALIGN="JUSTIFY">- El término que se busca tiene paréntesis, p.e. </p>
+
+<p ALIGN="center">&nbsp;<b>BOGOTA (DISTRITO, 1861-1886)</b></p>
+
+<p ALIGN="JUSTIFY">&nbsp;deberá colocarse entre comillas:</p>
+
+<p ALIGN="center">&nbsp;<b>&quot;BOGOTA (DISTRITO, 1861-1886)&quot;</b></p>
+
+<p ALIGN="JUSTIFY">&nbsp;- Hay una cadena con <b>Y</b> y <b>O</b>, p.e.</p>
+
+<p ALIGN="center">&nbsp;<b>Agua + Obras Públicas * Ecología</b></p>
+
+<p ALIGN="JUSTIFY">Si se desea Agua u Obras Públicas y Ecología, se deberán utilizar
+paréntesis, así:</p>
+
+<p ALIGN="CENTER"><b>(Agua + Obras Públicas) * Ecología</b></p>
+
+<p ALIGN="JUSTIFY">De lo contrario la búsqueda se hará como Ecología y Obras Públicas
+o Agua, es decir, el operador <b>Y</b> tiene prioridad sobre el <b>O</b>.</p>
+
+<p ALIGN="JUSTIFY">Además de las posibilidades de búsquedas con conectores lógicos,
+Isis permite:</p>
+
+<p ALIGN="JUSTIFY">- Uso de &quot;comodines&quot;:</p>
+
+<p ALIGN="JUSTIFY">Existe el &quot;comodín&quot; <b>$</b>, el cual permite buscar una
+serie de términos que comiencen con la misma cadena, p.e. suponga la siguiente cadena de
+términos, </p>
+
+<p ALIGN="JUSTIFY">ABONOS</p>
+
+<p ALIGN="JUSTIFY">ACUEDUCTO</p>
+
+<p ALIGN="JUSTIFY">ACUEDUCTO AUTOCONSTRUCCION</p>
+
+<p ALIGN="JUSTIFY">ACUEDUCTO MUNICIPAL</p>
+
+<p ALIGN="JUSTIFY">ACUEDUCTO RURAL</p>
+
+<p ALIGN="JUSTIFY">ACUEDUCTO-NECESIDADES</p>
+
+<p ALIGN="JUSTIFY">ACUEDUCTO-PROBLEMAS</p>
+
+<p ALIGN="JUSTIFY">ACUERDOS</p>
+
+<p ALIGN="JUSTIFY">Utilizando el &quot;comodín&quot; :</p>
+<b>
+
+<p ALIGN="CENTER">ACUEDUCTO$</b></p>
+
+<p ALIGN="JUSTIFY">Se obtendrá:</p>
+
+<p ALIGN="JUSTIFY">&nbsp;ACUEDUCTO</p>
+
+<p ALIGN="JUSTIFY">ACUEDUCTO AUTOCONSTRUCCION</p>
+
+<p ALIGN="JUSTIFY">ACUEDUCTO MUNICIPAL</p>
+
+<p ALIGN="JUSTIFY">ACUEDUCTO RURAL</p>
+
+<p ALIGN="JUSTIFY">ACUEDUCTO-NECESIDADES</p>
+
+<p ALIGN="JUSTIFY">ACUEDUCTO-PROBLEMAS</p>
+
+<p ALIGN="JUSTIFY">Utilizando el &quot;comodín&quot; :</p>
+<b>
+
+<p ALIGN="CENTER">ACUEDUCTO-$</b></p>
+
+<p ALIGN="JUSTIFY">&nbsp;Se obtendrá:</p>
+
+<p ALIGN="JUSTIFY">&nbsp;ACUEDUCTO-NECESIDADES</p>
+
+<p ALIGN="JUSTIFY">ACUEDUCTO-PROBLEMAS</p>
+
+<p ALIGN="JUSTIFY">Para buscar, <b>ACUEDUCTO $</b>, se deberá teclear:</p>
+<b>
+
+<p ALIGN="CENTER">ACUEDUCTO $</b></p>
+
+<p ALIGN="JUSTIFY">&nbsp;y se obtendrá:</p>
+
+<p ALIGN="JUSTIFY">ACUEDUCTO</p>
+
+<p ALIGN="JUSTIFY">ACUEDUCTO AUTOCONSTRUCCION</p>
+
+<p ALIGN="JUSTIFY">ACUEDUCTO MUNICIPAL</p>
+
+<p ALIGN="JUSTIFY">ACUEDUCTO RURAL</p>
+
+<p ALIGN="JUSTIFY">- Proximidad entre los términos de búsqueda:</p>
+
+<p ALIGN="JUSTIFY">Isis permite efectuar búsquedas entre términos, especificando la
+proximidad de los mismos con los comandos:</p>
+
+<p ALIGN="CENTER"><b>(G)</p>
+
+<p ALIGN="CENTER">(F)</p>
+
+<p ALIGN="CENTER">. . .</p>
+
+<p ALIGN="CENTER">$ $ $</b></p>
+
+<p ALIGN="JUSTIFY">Estos comandos actúan como un <b>Y</b> (*) pero más restrictivo.</p>
+
+<p ALIGN="JUSTIFY">El comando <b>(G)</b> busca los dos términos en el mismo campo. Cada
+subcampo es tratado como una ocurrencia:</p>
+<b>
+
+<p ALIGN="CENTER">Agua (G) Obras Públicas</b></p>
+
+<p ALIGN="JUSTIFY">&nbsp;Mostrará todos los registros que contengan <b>en un mismo campo</b>
+los términos.</p>
+
+<p ALIGN="JUSTIFY">&nbsp;El comando <b>(F)</b> busca los dos términos en el mismo campo
+y/o la misma ocurrencia en un campo repetitivo (los comandos (G) y (F) funcionan igual en
+campos no repetitivos).</p>
+
+<p ALIGN="center">&nbsp;<b>Agua (F) Obras Públicas</b></p>
+
+<p ALIGN="JUSTIFY">&nbsp;El comando punto <b>. . .</b>, permite efectuar búsquedas de
+términos separados así:</p>
+
+<p ALIGN="JUSTIFY">&nbsp;</p>
+
+<blockquote>
+  <blockquote>
+    <font FACE="Courier,Courier New" SIZE="2"><p ALIGN="JUSTIFY"><font FACE="Symbol">·</font>
+    </font><b>Agua . Obras Públicas</b> Adyacentes.</p>
+    <font FACE="Courier,Courier New" SIZE="2"><p ALIGN="JUSTIFY"><font FACE="Symbol">·</font>
+    </font><b>Agua . . Obras Públicas</b> Separados por lo menos por una palabra.</p>
+    <font FACE="Courier,Courier New" SIZE="2"><p ALIGN="JUSTIFY"><font FACE="Symbol">·</font>
+    </font><b>Agua . . . Obras Públicas</b> Separados por lo menos por dos palabras.</p>
+  </blockquote>
+</blockquote>
+
+<p ALIGN="JUSTIFY">Note que entre cada punto hay un espacio.</p>
+
+<p ALIGN="JUSTIFY">El comando <b>$ $ $</b>, permite efectuar búsquedas de términos
+separados exactamente así:</p>
+
+<blockquote>
+  <blockquote>
+    <font FACE="Courier,Courier New" SIZE="2"><p ALIGN="JUSTIFY"><font FACE="Symbol">·</font>
+    </font><b>Agua $ Obras Públicas</b> Adyacentes.</p>
+    <font FACE="Courier,Courier New" SIZE="2"><p ALIGN="JUSTIFY"><font FACE="Symbol">·</font>
+    </font><b>Agua $ $ Obras Públicas</b> Separados exactamente por una palabra.</p>
+    <font FACE="Courier,Courier New" SIZE="2"><p ALIGN="JUSTIFY"><font FACE="Symbol">·</font>
+    </font><b>Agua $ $ $ Obras Públicas</b> Separados exactamente por dos palabras.</p>
+  </blockquote>
+</blockquote>
+
+<p ALIGN="JUSTIFY">Note que cada $ está separado por un espacio. 
+<!--msnavigation--></td></tr><!--msnavigation--></table></body>
+</html>
