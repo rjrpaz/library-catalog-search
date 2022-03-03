@@ -1,0 +1,32 @@
+#!/usr/bin/perl
+
+$letra_anterior = "B";
+$directorio = "/var/lib/httpd/cgi-bin/html/";
+
+$archivo= $letra_anterior.".html";
+open HTML, ">".$directorio.$archivo;
+
+open DESC,"</var/lib/httpd/cgi-bin/html/desc";
+while (<DESC>) {
+$renglon = $_;
+($letra_actual) = ($renglon =~ /(.)/);
+
+if ($letra_actual ne $letra_anterior){
+print HTML "</BODY></HTML>\n";
+close HTML;
+$archivo = $letra_actual.".html";
+open HTML, ">".$directorio.$archivo;
+print HTML "<HTML><TITLE></TITLE><BODY>\n";
+print HTML $renglon;
+} else {
+print HTML $renglon;
+}
+$letra_anterior=$letra_actual;
+#print $renglon;
+#print $letra_actual,"\n";
+}
+
+close HTML;
+close DESC;
+
+exit (0);

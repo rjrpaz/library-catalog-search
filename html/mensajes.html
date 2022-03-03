@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//AdvaSoft//DTD HTML 3.2 extended 961018//EN">
+<HTML>
+<HEAD>
+ <TITLE>Servicio de Mensajeria</TITLE>
+</HEAD>
+<BODY BACKGROUND="img/fondo_main.gif" BGCOLOR="#ffffcc" TEXT="#000000" LINK="#0000ff" VLINK="#800080" ALINK="#ff0000">
+<CENTER>
+<TABLE WIDTH="100%" BORDER=0>
+	<TR>
+		<TD ALIGN=LEFT>
+			<FONT SIZE=1>Env&iacute;o de Mensajes</FONT>
+		</TD>
+		<TD ALIGN=RIGHT>
+			<FONT SIZE=1>Biblioteca - F.C.E.F. y N.&nbsp;&nbsp;&nbsp;P&aacute;g. M</FONT>
+		</TD>
+	</TR>
+</TABLE>
+<HR WIDTH="100%" ALIGN=CENTER SIZE=1>
+<P>
+<IMG SRC="img/mensajes.GIF" BORDER="0">
+<P>
+<FORM ACTION="/cgi-bin/mensajero" METHOD=POST>
+<TABLE WIDTH="525" ALIGN=center CELLPADDING="5">
+<TR>
+<TD WIDTH="50%" ALIGN=left VALIGN=middle>
+<TT><B>APELLIDO, Nombres:</B><BR>
+<INPUT NAME="nombre" SIZE="45" MAXLENGTH=255><BR><BR>
+<B>Direcci&oacute;n de Correo:</B><BR>
+<INPUT NAME="direccion" SIZE="45" MAXLENGTH=255><BR><BR>
+<B>Tel&eacute;fono:</B><BR>
+<INPUT NAME="telefono" SIZE="45" MAXLENGTH=255><BR><BR></TT>
+<TD WIDTH="50%" ALIGN=left VALIGN=middle>
+<TT><B>Tipo de Mensaje:</B><BR>
+<INPUT TYPE=radio NAME="tipo" VALUE="anonimo">&nbsp;An&oacute;nimo<BR>
+<INPUT TYPE=radio CHECKED NAME="tipo" VALUE="firmado">&nbsp;Firmado<BR><BR>
+<B>Motivo del Mensaje:</B><BR>
+<SELECT NAME="motivo" SIZE=3>
+<OPTION SELECTED>Comentario o Sugerencia
+<OPTION>Queja o Reclamo
+<OPTION>Reporte de Errores
+</SELECT><BR><BR></TT>
+<TR>
+<TD WIDTH="100%" ALIGN=center VALIGN=top COLSPAN=2>
+<TT><B>Calificaci&oacute;n del Sitio Web :</B><BR>
+<INPUT TYPE=radio NAME="calificacion" VALUE="malo">&nbsp;Malo&nbsp;&nbsp;
+<INPUT TYPE=radio NAME="calificacion" VALUE="regular">&nbsp;Regular&nbsp;&nbsp;
+<INPUT TYPE=radio NAME="calificacion" VALUE="bueno">&nbsp;Bueno&nbsp;&nbsp;
+<INPUT TYPE=radio CHECKED NAME="calificacion" VALUE="muy bueno">&nbsp;Muy Bueno</TT>
+<TR>
+<TD WIDTH="100%" ALIGN=center VALIGN=top COLSPAN=2>
+<TT><B>Texto del Mensaje:</B><BR>
+<TEXTAREA NAME="mensaje" COLS=60 ROWS=5></TEXTAREA></TT>
+<TR>
+<TD WIDTH="100%" ALIGN=center VALIGN=top COLSPAN=2>
+<TT><INPUT TYPE=submit NAME="boton_envio" VALUE="Enviar">&nbsp;&nbsp;
+<INPUT TYPE=reset NAME="boton_reiniciar" VALUE="Reiniciar"></TT>
+<TR>
+<TD WIDTH="100%" ALIGN=left VALIGN=top COLSPAN=2>
+Si no desea utilizar este servicio puede enviar la carta Ud. mismo a <A HREF="mailto:biblio@gtwing.efn.uncor.edu">biblio@gtwing.efn.uncor.edu</A>.
+</TABLE>
+
+</FORM>
+<A HREF="http://www.efn.uncor.edu" TARGET="_top"><IMG SRC="img/efn.GIF" WIDTH="60" HEIGHT="60" BORDER=0 ALT=""></A>
+<A HREF="busquedas.html"><IMG SRC="img/buscar.GIF" WIDTH="60" HEIGHT="60" BORDER=0 ALT=""></A>
+<IMG SRC="img/correo.GIF" WIDTH="60" HEIGHT="60" BORDER=0 ALT="">
+<HR WIDTH="100%" ALIGN=CENTER SIZE=1>
+<A HREF="http://dns.uncor.edu" TARGET=_top><IMG SRC="img/c5.gif" BORDER=0></A>
+</CENTER>
+</BODY>
+</HTML>
